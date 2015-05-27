@@ -1,0 +1,28 @@
+snippet table
+% ${1:A descriptive comment}
+\begin{table}
+\begin{center}
+\caption{${2:A descriptive caption}$^a$}
+\label{table:${3:label}}
+\footnotesize
+\begin{tabular}{l*{${4:size}}{c}} \toprule
+$0
+\bottomrule
+\end{tabular}
+\end{center}
+$^a$ ${5:table footnotes}
+\end{table}
+%
+endsnippet
+
+snippet figure
+% ${1:A descriptive comment}
+\begin{figure}[t!]
+\centering
+\includegraphics[width=${2:1.0}\textwidth]{figures/${3:fig}}
+\caption{${4:A descriptive caption}}
+\label{fig:${5:A descriptive label}}
+\end{figure}
+%
+$0
+endsnippet
