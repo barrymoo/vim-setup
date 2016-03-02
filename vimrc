@@ -1,5 +1,5 @@
-set nocompatible              " be iMproved
-filetype off                  " required!
+set nocompatible
+filetype off
 
 " Vundle Setup
 set rtp+=~/.vim/bundle/vundle/
@@ -14,8 +14,14 @@ Bundle 'Shougo/neocomplete'
 Bundle 'ervandew/supertab'
 
 " Plugin Options
-filetype plugin indent on     " required!
+filetype plugin indent on
 filetype plugin on
+
+" Necessary mouse improvements
+set mouse=a
+set iskeyword+=.
+set iskeyword+=-
+set clipboard=unnamed
 
 " My Favorites
 set number
@@ -55,14 +61,12 @@ set shiftwidth=4
 
 " Latex
 nmap <leader>lc :! runlatex % > logfile 2>&1 &<CR><CR>
-"nmap <leader>pc :! posterlatex % > logfile 2>&1 &<CR><CR>
 nmap <leader>pc :! pdflatex % > logfile 2>&1 &<CR><CR>
-nmap <leader>bc :! beamertex % > logfile 2>&1 &<CR><CR>
-nmap <leader>lo :! evince %:r.pdf > /dev/null 2>&1 &<CR><CR>
+nmap <leader>lo :! open %:r.pdf > /dev/null 2>&1 &<CR><CR>
 
 " Gnuplot
 nmap <leader>gc :! gnuplot % > /dev/null 2>&1 &<CR><CR>
-nmap <leader>go :! evince %:r.eps > /dev/null 2>&1 &<CR><CR>
+nmap <leader>go :! open %:r.eps > /dev/null 2>&1 &<CR><CR>
 
 "Code Block Movement
 vnoremap < <gv
@@ -100,6 +104,8 @@ set colorcolumn=81
 if has("gui_running")
     set lines=999 columns=999
     set background=dark
+    set guifont=Monaco:h16
+    autocmd VimLeave * :!open -a ITerm
 else
     highlight Pmenu ctermbg=7 guibg=LightGray
     highlight PmenuSel ctermbg=4 guibg=DarkGray guifg=White
