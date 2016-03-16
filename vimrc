@@ -12,7 +12,6 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'SirVer/ultisnips'
 Bundle 'Shougo/neocomplete'
 Bundle 'ervandew/supertab'
-Bundle 'vim-latex/vim-latex'
 
 " Plugin Options
 filetype plugin indent on
@@ -61,11 +60,12 @@ set tabstop=4
 set shiftwidth=4
 
 " Latex
-" I hate the folding in vim-latex suite
-autocmd FileType tex setlocal nofoldenable
+autocmd FileType tex setlocal indentexpr=
 nmap <leader>lc :! runlatex % > logfile 2>&1 &<CR><CR>
 nmap <leader>pc :! pdflatex % > logfile 2>&1 &<CR><CR>
 nmap <leader>lo :! open %:r.pdf > /dev/null 2>&1 &<CR><CR>
+nmap <leader>dc :! compile-dissertation.sh % > logfile 2>&1 &<CR><CR>
+nmap <leader>do :! open-dissertation.sh % > logfile 2>&1 &<CR><CR>
 
 " Gnuplot
 nmap <leader>gc :! gnuplot % > /dev/null 2>&1 &<CR><CR>

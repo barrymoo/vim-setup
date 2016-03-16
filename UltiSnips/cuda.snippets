@@ -1,0 +1,66 @@
+snippet malloc
+(${1:double} *)malloc(${2:size_t});
+$0
+endsnippet
+
+snippet malloc_size_of
+(${1:double} *)malloc(${2:number} * sizeof($1));
+$0
+endsnippet
+
+snippet cudaMalloc
+cudaMalloc((void **) &${1:device}, ${2:size_t});
+$0
+endsnippet
+
+snippet cudaMalloc_size_of
+cudaMalloc((void **) &${1:device}, ${2:number} * sizeof(${3:type});
+$0
+endsnippet
+
+snippet cudaMemcpyHostToDevice
+cudaMemcpy(${1:device}, ${2:host}, ${3:size_t}, cudaMemcpyHostToDevice);
+$0
+endsnippet
+
+snippet cudaMemcpyHostToDevice_size_of
+cudaMemcpy(${1:device}, ${2:host}, ${3:number} * sizeof(${4:type}), cudaMemcpyHostToDevice);
+$0
+endsnippet
+
+snippet cudaMemcpyDeviceToHost
+cudaMemcpy(${1:host}, ${2:device}, ${3:size_t}, cudaMemcpyDeviceToHost);
+$0
+endsnippet
+
+snippet cudaMemcpyDeviceToHost_size_of
+cudaMemcpy(${1:host}, ${2:device}, ${3:number} * sizeof(${4:type}), cudaMemcpyDeviceToHost);
+$0
+endsnippet
+
+snippet free
+free(${1:host});
+$0
+endsnippet
+
+snippet cudaFree
+cudaFree(${1:device});
+$0
+endsnippet
+
+snippet global
+__global__ void add_one(int ${1:numElements}, ${2:double *array}) {
+  for (int idx = blockIdx.x * blockDim.x + threadIdx.x;
+       idx < $1;
+       idx += blockDim.x * gridDim.x) {       
+    $0
+  }
+}
+endsnippet
+
+snippet cudaKernel
+int cudaNumberOfSMs;
+cudaDeviceGetAttribute(&cudaNumberOfSMs, cudaDevAttrMultiProcessorCount, 0);
+${1:kernelName}<<<32*cudaNumberOfSMs, 256>>>(${2:numElements}, ${3:double *array});
+$0
+endsnippet

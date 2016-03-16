@@ -2,3 +2,13 @@ snippet #!
 #!/usr/bin/env bash
 $0
 endsnippet
+
+snippet paths
+${1:paths}=(
+	$0
+)
+for i in ${$1[@]}; do
+    ${2:PATH}=$i:$2
+done
+export $2
+endsnippet
