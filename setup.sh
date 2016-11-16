@@ -33,4 +33,9 @@ else
     git clone https://github.com/kien/ctrlp.vim.git $dir/bundle/ctrlp.vim
 fi
 
+# Add mail for mutt + neocomplete + neco-look
+echo "--> Allowing mutt, neocomplete, and neco-look to play nice <--"
+echo "--> (adds mail to text_mode_filetypes) <--"
+sed -i "s|\('text', 'help', 'tex',\)|\1 'mail',|" $dir/bundle/neocomplete/autoload/neocomplete/init.vim
+
 echo "---> All done, thanks $USER :) <---"

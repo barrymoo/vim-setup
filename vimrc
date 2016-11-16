@@ -12,16 +12,17 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'SirVer/ultisnips'
 Bundle 'Shougo/neocomplete'
 Bundle 'ervandew/supertab'
+Bundle 'ujihisa/neco-look'
 
 " Plugin Options
 filetype plugin indent on
 filetype plugin on
 
 " Necessary mouse improvements
-set mouse=a
-set iskeyword+=.
-set iskeyword+=-
-set clipboard=unnamed
+"set mouse=a
+"set iskeyword+=.
+"set iskeyword+=-
+"set clipboard=unnamed
 
 " My Favorites
 set number
@@ -92,6 +93,7 @@ let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 nmap <leader>ue :UltiSnipsEdit <CR>
 let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 " Neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -116,3 +118,6 @@ else
     highlight IncSearch ctermbg=4
     highlight ColorColumn ctermbg=4
 endif
+
+" Email
+autocmd FileType mail set fo-=t
